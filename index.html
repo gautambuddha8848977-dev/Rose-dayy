@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Rose Day 🌹</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Parchment background */
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, #fdf6ee, #f3e7d7);
+  font-family: 'Dancing Script', cursive;
+  color: #4b2a3c;
+  overflow-x: hidden;
+}
+
+/* Petal animation background */
+.petal {
+  position: fixed;
+  top: -10%;
+  font-size: 18px;
+  opacity: 0.6;
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+  }
+}
+
+/* Sections */
+.section {
+  min-height: 100vh;
+  padding: 90px 26px;
+  max-width: 850px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rose petal reveal */
+.content {
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 1.6s ease, transform 1.6s cubic-bezier(.22,1,.36,1);
+}
+
+.content.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 22px;
+  line-height: 2;
+}
+
+/* Divider rose */
+.divider {
+  font-size: 28px;
+  margin: 40px 0;
+}
+
+/* Final rose image */
+.rose-image {
+  width: 260px;
+  max-width: 80%;
+  margin-top: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Floating petals -->
+<script>
+for (let i = 0; i < 18; i++) {
+  const petal = document.createElement("div");
+  petal.className = "petal";
+  petal.innerText = "🌸";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.animationDuration = 10 + Math.random() * 10 + "s";
+  petal.style.fontSize = 14 + Math.random() * 14 + "px";
+  document.body.appendChild(petal);
+}
+</script>
+
+<!-- Opening -->
+<section class="section">
+  <div class="content">
+    <h1>
+      Simran, this rose doesn’t bloom all at once.<br>
+      It opens slowly — the way my love learned to open for you.
+    </h1>
+  </div>
+</section>
+
+<!-- Petal 1 -->
+<section class="section">
+  <div class="content">
+    <p>
+      On Rose Day, people exchange flowers that fade quietly with time.
+      But when I thought of you, I realized I didn’t want to give something temporary.
+      I wanted to give you a feeling that unfolds gently —
+      like a rose learning how to bloom.
+    </p>
+  </div>
+</section>
+
+<!-- Petal 2 -->
+<section class="section">
+  <div class="content">
+    <p>
+      Loving you didn’t rush into my life —
+      it arrived softly, settled deeply, and stayed.
+      You didn’t change me; you understood me.
+      And in that understanding, my world became warmer.
+    </p>
+  </div>
+</section>
+
+<!-- Petal 3 -->
+<section class="section">
+  <div class="content">
+    <p>
+      Every layer of this rose carries something real —
+      my patience with you, my gratitude for you,
+      and my quiet promise to stand beside you,
+      even on the days that don’t feel perfect.
+    </p>
+  </div>
+</section>
+
+<!-- Petal 4 -->
+<section class="section">
+  <div class="content">
+    <p>
+      I don’t need grand gestures to love you.
+      I just need your presence, your honesty,
+      and the comfort of knowing we are choosing each other —
+      again and again.
+    </p>
+  </div>
+</section>
+
+<!-- Final bloom + image -->
+<section class="section">
+  <div class="content">
+    <div class="divider">🌹</div>
+    <h1>
+      Happy Rose Day, my wife.<br>
+      You are my forever rose.
+    </h1>
+
+    <!-- Your rose image -->
+    <img src="rose.png" alt="Rose" class="rose-image">
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("show");
+      }
+    });
+  },
+  { threshold: 0.35 }
+);
+
+document.querySelectorAll(".content").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
